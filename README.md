@@ -2,7 +2,7 @@
 
 Upgrade from Zulip 5 to Zulip 6 requires updating PostgreSQL version from 10 to 14.
 
-Upgrade is supposed to be done by following [these instructions](https://zulip.readthedocs.io/en/latest/production/upgrade.html#upgrading-postgresql). However, they are only possible, if Zulip installation is NOT dockerized. When installing Zulip with Docker, postgresql database runs in a separate container. Therefore, `pg_upgradecluster` command in Zulip container does not make sense and will fail, because the old database is not running locally.
+Upgrade is supposed to be done by following [these instructions](https://zulip.readthedocs.io/en/latest/production/upgrade.html#upgrading-postgresql). However, they are only possible, if Zulip installation is NOT dockerized. When installing [Zulip with Docker](https://github.com/zulip/docker-zulip), postgresql database runs in a separate container. Therefore, `pg_upgradecluster` command in Zulip container does not make sense and will fail, because the old database is not running locally.
 
 This utility container based on [tianon/docker-postgres-upgrade](https://github.com/tianon/docker-postgres-upgrade) installs PostgreSQL versions 10 and 14 simultaneously. Additionally, the required `pgroonga`, `hunspell-en-us`, and Zulip stop words are installed. Container preparation and Zulip database upgrade could be performed, as explained below.
 
