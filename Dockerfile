@@ -3,7 +3,7 @@ FROM postgres:14-bullseye
 RUN sed 's/$/ 10/' /etc/apt/sources.list.d/pgdg.list
 
 RUN apt update && apt install -y --no-install-recommends \
-	postgresql-10=10.23-1.pgdg110+1 \
+	postgresql-10 \
 	wget \
 	ca-certificates
 
